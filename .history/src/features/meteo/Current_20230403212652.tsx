@@ -3,7 +3,7 @@ import React from 'react'
 
 const Current = () => {
     return (
-        <Box>Current</Box>
+        <Box>Current</div>
     )
 }
 
