@@ -1,19 +1,17 @@
-import { Box, Stack, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Stack, Typography, styled } from '@mui/material'
 
-//https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/clear_night@2x.png
-const Current = () => {
+
+const Current = (props: {weather: Map<string, string>}) => {
     return (
-        <Box bgcolor={'lightgray'} mb={1}>
-            <Stack direction={'row'} justifyContent={'center'}>
+        <Box bgcolor={'darkturquoise'} mb={1}>
+            <Stack direction={'row'} justifyContent={'space-between'}>
                 <img src='https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/partly_cloudy_day@2x.png' />
                 <Stack direction={'column'}>
-                    <Typography variant='h3'>23°</Typography>                
-                    <Typography >12° - 30°</Typography>                
-                    <Typography >9 km/h</Typography>                
-                    </Stack>
+                    <Typography variant='h3'>{props.weather.get("Temp")}</Typography>
+                    <Typography >{props.weather.get("TempMin")} - {props.weather.get("TempMax")}</Typography>
+                    <Typography >{props.weather.get("WindSpeed")}</Typography>
+                </Stack>
             </Stack>
-
         </Box>
     )
 }

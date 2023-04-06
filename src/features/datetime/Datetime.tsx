@@ -17,7 +17,7 @@ const Datetime = () => {
     }, [])
 
     return (
-        <Box flex={2} alignContent={'center'} justifyContent={'center'} bgcolor={'lightcoral'}>
+        <Box maxHeight={80} flex={2} alignContent={'center'} justifyContent={'center'} bgcolor={'lightcoral'}>
             <Typography variant='h5'>{value? value.toLocaleDateString('vi-VI', options): ""}</Typography>
             <Typography variant='h5'>{value ? value.toLocaleTimeString('vi', { timeZone : timezone}) : ""}</Typography>
         </Box>
