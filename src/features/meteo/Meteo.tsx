@@ -5,7 +5,7 @@ import Forex from './Forex';
 
 const Meteo = () => {
   return (
-    <Box justifyContent={'center'} bgcolor={'lightsalmon'}>
+    <Box justifyContent={'center'} bgcolor={''}>
       <Current />
       <Forex />
     </Box>

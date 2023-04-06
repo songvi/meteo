@@ -15,6 +15,10 @@ const Navbar = () => {
                 </Stack>
                 <Photo />
             </Stack>
+            <Box bgcolor={'lightgoldenrodyellow'}>
+                <Box> BUSSS</Box>
+                <Box> BUSSS</Box>
+            </Box>
         </Box>
     )
 }
