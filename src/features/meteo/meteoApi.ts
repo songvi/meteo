@@ -13,10 +13,7 @@ export const meteoApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:24719' }),
     endpoints: (builder) => ({
         getMeteo: builder.query<MeteoType, string>({
-            query: (location: string) => `weather/${location}`,
-            // transformResponse: response => {
-            //     response.data
-            // }
+            query: (location: string) => `weather/${location}`
         })
     }),
 })

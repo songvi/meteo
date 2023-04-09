@@ -7,40 +7,17 @@ import Datetime from '../features/meteo/Datetime'
 import Location from '../features/meteo/Location'
 import Bus from '../features/bus/Bus'
 import Note from '../features/note/Note'
-import type { MeteoType } from '../features/meteo/meteoApi'
 
-const Navbar = () => {
-    // const weatherJson = {
-    //     "Index": "Thursday",
-    //     "Temp": "13",
-    //     "TempMax": "15°",
-    //     "TempMin": "7°",
-    //     "Humidity": "60%",
-    //     "Ciel": "https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/mostly_cloudy_day_night@2x.png",
-    //     "WindSpeed": "16 km/h WSW",
-    //     "WindDirection": "",
-    //     "Presure": "1017.3 millibars",
-    //     "ReadFeel": "51°",
-    //     "UVIndex": "0 (Low)",
-    //     "Visibility": "10.00 miles",
-    //     "SunSet": "",
-    //     "SunRise": "",
-    //     "Moon": "",
-    //     "Comment": "",
-    //     "Precipitation": ""
-    //   }
 
-    // const w = new Map<string, string>(Object.entries(weatherJson));
+const Navbar = () => {   
 
-    // const f = [w, w, w, w,w,w, w, w, w,w, w, w, w]
-
-    const { data: MeteoType, isLoading, error, isFetching } = useGetMeteoQuery('namdinh',
+    const { data: meteos, isLoading, error, isFetching } = useGetMeteoQuery('creteil',
         {
-            pollingInterval: 5000,
+            pollingInterval: 30000,
         })
 
     let content; 
-    console.log(data)
+    console.log(meteos)
 
     if (isLoading) {
         content = <p>Loading ...</p>
@@ -50,7 +27,7 @@ const Navbar = () => {
         <>
             {error ? (<>Oh no, there was an error</>)
                 : isLoading ? (<>Loadding...</>)
-                    : data ? (
+                    : meteos ? (
                         <Box>
                             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} padding={1}>
                                 <Note />
@@ -61,7 +38,7 @@ const Navbar = () => {
                                 <Stack spacing={1} direction={'column'} justifyContent={'top'}>
                                     <Location />
                                     <Datetime />
-                                    <MeteoComp current={{ weather: data.Current }} forex={data.Forecast} />
+                                    <MeteoComp current={{ weather: meteos[0].Meteo.current.weather }} forex={meteos[0].Meteo.forex} />
                                 </Stack>
                                 <Photo />
                             </Stack>
