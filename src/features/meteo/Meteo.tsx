@@ -1,15 +1,10 @@
 import { Box } from '@mui/material';
 import Current from './Current';
 import Forex24h from './Forex24h';
+import { Meteo } from './types';
 
-export type WeatherProps = {
-  current: {
-    weather: Map<string, string>
-  }
-  forex: Array<Map<string,string>>
-}
 
-const Meteo = (props: WeatherProps) => {
+const MeteoComp = (props: Meteo) => {
   return (
     <Box justifyContent={'center'} bgcolor={''}>
       <Current weather={props.current.weather} />
@@ -18,4 +13,4 @@ const Meteo = (props: WeatherProps) => {
   )
 }
 
-export default Meteo
+export default MeteoComp
